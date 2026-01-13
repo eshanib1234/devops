@@ -1,5 +1,6 @@
 name: User Service CI
 
+# Trigger workflow on push to main branch
 on:
   push:
     branches: [ "main" ]
@@ -9,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Build User Service
+      # Step 2: Build Docker image
+      - name: Build User Service Docker image
         run: |
           cd user-service
           docker build -t user-service .
