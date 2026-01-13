@@ -14,5 +14,5 @@ jobs:
 
       - name: Build Order Service
         run: |
-          cd microservices/order-service
+          cd order-service
           docker build -t order-service .
